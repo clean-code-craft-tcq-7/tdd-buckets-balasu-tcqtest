@@ -1,1 +1,1 @@
-void getRangeData(int* data, int dataCnt,char* output);
+void getRangeData(int* data, int dataCnt, char* buff);
