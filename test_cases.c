@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 #include "rangeProvider.h"
 
 void main(void)
@@ -8,5 +9,5 @@ void main(void)
     char output[100];
 
     getRangeData(data, 2, output);
-    assert(strcmp(ouput,"Range, Readings\n4-5, 2\n") == 0);
+    assert(strcmp(output,"Range, Readings\n4-5, 2\n") == 0);
 }

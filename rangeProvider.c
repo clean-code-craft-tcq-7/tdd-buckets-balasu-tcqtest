@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "rangeChecker.h"
+#include "rangeProvider.h"
 
 void getRangeData(int* data, int dataCnt)
 {
