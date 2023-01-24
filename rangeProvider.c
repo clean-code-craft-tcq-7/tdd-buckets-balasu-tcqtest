@@ -26,7 +26,7 @@ int findCountInRange(int* data, int cnt, int min, int max)
 
 int checkWithinRange(int value, int min, int max)
 {
-    if(value <= min || value >= max)
+    if(value >= min || value <= max)
     {
         return 1;
     }
