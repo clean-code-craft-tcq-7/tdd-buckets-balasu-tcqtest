@@ -8,6 +8,7 @@ void getRangeData(int* data, int dataCnt, char* buff)
     int cntInRange;
 
     memset(printData, 0, 100);
+    sortInAscending(data,dataCnt);
     cntInRange = findCountInRange(data, dataCnt, data[0], data[dataCnt - 1]);
     sprintf(printData,"%s\n%d-%d, %d\n",HEADER_CHAR,data[0],data[dataCnt - 1], cntInRange);
     strncpy(buff,printData,strlen(printData));
@@ -32,4 +33,22 @@ int checkWithinRange(int value, int min, int max)
     }
 
     return 0;
+}
+
+void sortInAscending(int* data, int length)
+{
+    int temp,i,j;
+
+    for(i = 0; i < length; i++)
+    {
+        for(j = i + 1; j < length; j++)
+        {
+            if(data[i] > data[j])
+            {
+                temp = data[i];
+                data[i] = data[j];
+                data[j] = temp;
+            }
+        }
+    }
 }
