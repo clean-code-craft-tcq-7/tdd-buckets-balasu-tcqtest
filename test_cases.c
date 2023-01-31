@@ -17,6 +17,11 @@ int main(void)
     memset(output, 0, 100);
     getRangeData(data1, 2, output);
     assert(strcmp(output,"Range, Readings\n4-5, 2\n") == 0);
-    
+    //Test case with empty array as input
+    int data2[2];
+    memset(output, 0, 100);
+    getRangeData(data2, 0, output);
+    assert(strcmp(output,"Range, Readings\n") == 0);
+
     return 0;
 }
