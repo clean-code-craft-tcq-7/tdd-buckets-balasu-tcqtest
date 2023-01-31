@@ -28,10 +28,13 @@ void findRangesAndCount(int* data, int len,char* strVal)
     while(maxIdx < len)
     {
         maxIdx = isConsecutive(data, minIdx, len);
-        memset(rangeInfo,0,20);
-        sprintf(rangeInfo,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
-        strncpy(strVal,rangeInfo,strlen(rangeInfo));
-        strVal += strlen(rangeInfo);
+        if(data[minIdx] != data[maxIdx - 1])
+        {
+            memset(rangeInfo,0,20);
+            sprintf(rangeInfo,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
+            strncpy(strVal,rangeInfo,strlen(rangeInfo));
+            strVal += strlen(rangeInfo);
+        }
         minIdx = maxIdx;
     }
 }
