@@ -5,16 +5,15 @@
 
 void getRangeData(int* data, int dataCnt, char* buff)
 {
-    char printData[100];
-    int cntInRange;
+    char printData[200];
 
-    memset(printData, 0, 100);
+    memset(printData, 0, 200);
+
     sprintf(printData,"%s\n",HEADER_CHAR);
     if((data != NULL) && (dataCnt > 0))
     {
         sortInAscending(data,dataCnt);
-        cntInRange = findCountInRange(data, dataCnt, data[0], data[dataCnt - 1]);
-        sprintf(printData,"%s\n%d-%d, %d\n",HEADER_CHAR,data[0],data[dataCnt - 1], cntInRange);
+        findRangesAndCount(data, dataCnt, &printData[strlen(HEADER_CHAR) + 1]);
     }
     strncpy(buff,printData,strlen(printData));
 }

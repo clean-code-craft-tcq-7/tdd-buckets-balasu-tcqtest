@@ -1,26 +1,6 @@
 #include <stdio.h>
+#include <string.h>
 #include "rangeCalculator.h"
-
-int findCountInRange(int* data, int cnt, int min, int max)
-{
-    int i,occurCnt = 0;
-
-    for(i=0; i< cnt; i++)
-    {
-        occurCnt += checkWithinRange(data[i], min, max);
-    }
-    return occurCnt;
-}
-
-int checkWithinRange(int value, int min, int max)
-{
-    if(value >= min || value <= max)
-    {
-        return 1;
-    }
-
-    return 0;
-}
 
 void sortInAscending(int* data, int length)
 {
@@ -38,4 +18,33 @@ void sortInAscending(int* data, int length)
             }
         }
     }
+}
+
+void findRangesAndCount(int* data, int len,char* strVal)
+{
+    int minIdx = 0, maxIdx = 0;
+    char rangeInfo[20];
+
+    while(maxIdx < len)
+    {
+        maxIdx = isConsecutive(data, minIdx, len);
+        memset(rangeInfo,0,20);
+        sprintf(rangeInfo,"%d-%d, %d\n", data[minIdx], data[maxIdx - 1], (maxIdx - minIdx));
+        strncpy(strVal,rangeInfo,strlen(rangeInfo));
+        strVal += strlen(rangeInfo);
+        minIdx = maxIdx;
+    }
+}
+
+int isConsecutive(int* arr, int min, int len)
+{
+    int i;
+    for(i= min + 1; i<len; i++)
+    {
+        if((arr[i] - (arr[i-1]+1)) > 0)
+        {
+            return i;
+        }
+    }
+    return i;
 }

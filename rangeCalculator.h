@@ -1,3 +1,3 @@
-int findCountInRange(int* data, int cnt, int min, int max);
-int checkWithinRange(int value, int min, int max);
+void findRangesAndCount(int* data, int len,char* strVal);
+int isConsecutive(int* arr, int min, int len);
 void sortInAscending(int* data, int length);

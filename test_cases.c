@@ -23,10 +23,11 @@ int main(void)
     getRangeData(data2, 0, output);
     assert(strcmp(output,"Range, Readings\n") == 0);
 
-    //Test case with empty array as input
+    //Test case with multiple ranges
     int data3[]= {3, 3, 5, 4, 10, 11, 12};
     memset(output, 0, 100);
     getRangeData(data3, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
+
     return 0;
 }
