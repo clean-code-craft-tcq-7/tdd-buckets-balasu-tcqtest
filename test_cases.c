@@ -39,5 +39,12 @@ int main(void)
     getRangeData(data3, 7, output);
     assert(strcmp(output,"Range, Readings\n3-5, 4\n10-12, 3\n") == 0);
 
-    return 0;
+    //Test case with one range and non range values
+    int data4[]= {3, 3, 5, 4, 10, 20};
+    memset(output, 0, 100);
+    getRangeData(data4, 6, output);
+    assert(strcmp(output,"Range, Readings\n3-5, 4\n") == 0);
+
+
+   return 0;
 }
