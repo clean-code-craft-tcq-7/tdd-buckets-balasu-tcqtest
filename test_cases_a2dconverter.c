@@ -17,7 +17,14 @@ void test_cases_a2dconverter(void)
     float result1[] = {9.770395, 7.327797};
     float output1[2];
     int outCnt = 0;
-    convertA2D(data1, 2, output1);
+    outCnt = convertA2D(data1, 2, output1);
     assert(memcmp(output1,result1,2)==0);
     assert(outCnt == 2);
+
+    // Test the valid sample value check function
+    assert(checkValidSample(-1) == 0);
+    assert(checkValidSample(0) == 1);
+    assert(checkValidSample(1000) == 1);
+    assert(checkValidSample(4094) == 1);
+    assert(checkValidSample(4096) == 0);
 }
