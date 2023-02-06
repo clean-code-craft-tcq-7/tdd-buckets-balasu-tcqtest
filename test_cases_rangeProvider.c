@@ -52,4 +52,11 @@ void test_cases_rangeProvider(void)
     memset(output, 0, 100);
     getRangeData(data4, 6, output);
     assert(strcmp(output, "Range, Readings\n3-5, 4\n") == 0);
+
+
+    //Test with ADC sample data as input
+    int data5[] = {1637, 2047};
+    memset(output, 0, 100);
+    getRangeData(data5, 2, output);
+    assert(strcmp(output, "Range, Readings\n4-5, 2\n") == 0);
 }
