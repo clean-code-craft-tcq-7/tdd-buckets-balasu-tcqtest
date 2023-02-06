@@ -44,7 +44,7 @@ int isConsecutive(int* arr, int min, int len)
     int i;
     for(i= min + 1; i<len; i++)
     {
-        if((arr[i] - (arr[i-1]+1)) > 0)
+        if((arr[i] - arr[i-1]) > 1)
         {
             return i;
         }

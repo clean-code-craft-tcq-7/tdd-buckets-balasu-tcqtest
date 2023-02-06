@@ -16,4 +16,5 @@ void getRangeData(int* data, int dataCnt, char* buff)
         findRangesAndCount(data, dataCnt, &printData[strlen(HEADER_CHAR) + 1]);
     }
     strncpy(buff,printData,strlen(printData));
+
 }
