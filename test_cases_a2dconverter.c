@@ -12,7 +12,7 @@ void test_cases_a2dconverter(void)
     convertA2D(data, 2, output);
     assert(memcmp(output,result,2)==0);
 
-    // Test to check the converter and teh converter avoids invalid sensor values
+    // Test to check the converter and the converter avoids invalid sensor values
     int data1[] = {4000, 3000, 5000};
     float result1[] = {9.770395, 7.327797};
     float output1[2];
@@ -27,4 +27,15 @@ void test_cases_a2dconverter(void)
     assert(checkValidSample(1000) == 1);
     assert(checkValidSample(4094) == 1);
     assert(checkValidSample(4096) == 0);
+
+    // Test the sample conversion with the round of values
+    int data2[] = {4000, 3000};
+    float result2[] = {10.0, 7.0};
+    float output2[2];
+    int outCnt2 = 0;
+    outCnt = convertA2D(data2, 2, output2);
+    assert(memcmp(output2,result2,2)==0);
+    assert(outCnt2 == 2);
+
+
 }
