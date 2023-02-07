@@ -37,5 +37,4 @@ void test_cases_a2dconverter(void)
     assert(memcmp(output2,result2,2)==0);
     assert(outCnt2 == 2);
 
-
 }
