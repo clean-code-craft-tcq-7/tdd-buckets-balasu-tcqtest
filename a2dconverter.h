@@ -11,5 +11,6 @@
 
 
 int convertA2D12Bit(int* data, int len, float* output);
+int convertA2D10Bit(int* data, int len, float* output);
 int checkValidSample(int value,int min,int max);
 int a2dconverter(int sample, int minAmps, int maxAmps, int minSampleVal, int maxSampleVal, float* voltage);

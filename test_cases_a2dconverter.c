@@ -37,4 +37,33 @@ void test_cases_a2dconverter(void)
     assert(memcmp(output2,result2,2)==0);
     assert(outCnt2 == 2);
 
+    // Test case to check the input to 10 bit adc converter and output with single element
+    int sample = 1024;
+    float outputVal;
+    int retVal;
+    retVal = a2dconverter(sample, -15, 15, 0, 1023, &outputVal);
+    assert(retVal == 0);
+
+    sample = 0;
+    retVal = a2dconverter(sample, -15, 15, 0, 1023, &outputVal);
+    assert(retVal == 1);
+    assert(outputVal == -15.000000);
+
+    sample = 1023;
+    retVal = a2dconverter(sample, -15, 15, 0, 1023, &outputVal);
+    assert(retVal == 1);
+    assert(outputVal == 15.000000);
+
+    sample = 511;
+    retVal = a2dconverter(sample, -15, 15, 0, 1023, &outputVal);
+    assert(retVal == 1);
+    assert(outputVal == 0.000000);
+
+
+    int data3[] = {0, 511, 1023, 2000};
+    float result3[] = {15, 0, 15};
+    float output3[3];
+    retVal = convertA2D10Bit(data3, 4, output3);
+    assert(retVal == 3);
+    assert(memcmp(output3,result3,3)==0);
 }
