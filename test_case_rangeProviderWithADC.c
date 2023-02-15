@@ -16,6 +16,7 @@ void test_case_rangeProviderWithADC(void)
 
     //Test case with empty array as input
     int data2[2];
+
     memset(output, 0, 100);
     getRangeDataWithADC(data2, 0, output, &convertA2D12Bit);
     assert(strcmp(output, "Range, Readings\n") == 0);
